@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mjtacevalme-solutions.github.io/contentforge-blog/sitemap.xml

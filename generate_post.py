@@ -194,7 +194,11 @@ def load_existing_articles():
 
 async def main():
     import random
-    topic = random.choice(NICHIOS)
+    # Pick a topic not yet covered
+    existing = load_existing_articles()
+    used_topics = [a['topic'].strip() for a in existing if 'topic' in a]
+    available = [t for t in NICHIOS if t not in set(used_topics)]
+    topic = random.choice(available) if available else random.choice(NICHIOS)
 
     print(f"Generando artículo sobre: {topic}...")
     article = await generate_article(topic)
